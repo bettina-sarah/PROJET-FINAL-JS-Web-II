@@ -1,0 +1,22 @@
+
+
+
+body {
+    background-color: rgb(99, 23, 99);
+}
+
+button {
+    border-color: black;
+    border-width: 1px;
+}
+
+#important {
+    border-color: red;
+}
+
+#yes {
+    padding: 10px;
+    
+    border: solid 10px green;
+
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="global.css">
+    <title>My project</title>
+</head>
+<body>
+    <main>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div id="important">Mysterious button here
+        <p onmouseover="sourisEntre()" onmouseout="sourisSort()" id="yes"> OULALA!!!  OULALA!!! OULALA!!! OULALA!!! OULALA!!! OULALA!!!</p> 
+        <button id="mystery">Click me <span>bitch</span>
+        </button>
+    </div>
+    <div>9</div>
+</main>
+<script  type="text/javascript">
+    let colorsArray = ["burlywood", 
+                "cadetblue" ,
+                "chartreuse" ,
+                "chocolate" ,
+                "coral" ,
+                "cornflowerblue" ,
+                "cornsilk" ,
+                "crimson" ,
+                "cyan" ,
+                "darkblue" ,
+                "darkcyan" ,
+                "darkgoldenrod" ,
+                "darkgray" ,
+                "darkgreen" ,
+                "darkgrey" ,
+                "darkkhaki" ,
+                "darkmagenta"];
+            let button = document.getElementById("mystery");
+            //synchr action. what i want is async
+            let i=0;
+            button.addEventListener("click", () => {
+                // if(timeoutID){ //check to see if var is truthy value: has some value
+                //     //truthY: empty obj, empty array, neg numbers (everything else)
+                //     //falsy value: undef, null, false, 0, empty string
+                //     clearTimeout(timeoutID);
+                // }
+            document.body.style.backgroundColor = colorsArray[i];
+            
+            document.body.style.borderColor = colorsArray[i+1];
+            i++;
+            if(i > colorsArray.length){
+                i=0;
+            }
+            
+        });
+
+        let myP = document.getElementById("yes");
+
+        const sourisEntre = () => {
+            myP.style.backgroundColor = "red";
+            myP.style.borderColor = "green";
+        }
+
+        const sourisSort = () => {
+            myP.style.backgroundColor = "blue";
+            myP.style.borderColor = "black";
+        }
+        
+                // let i = 0;
+                // let intervalID = setInterval( () => {
+                //     document.body.style.backgroundColor = colorsArray[i];
+                //     i++;
+                //     if(i>colorsArray.length){
+                //         clearInterval(intervalID);
+                //     }
+                // }, 1000); //no access to color. but array. acces it w variable (i)
+
+
+                // colorsArray.forEach(color => {
+                //     timeoutID = setTimeout( () => {document.body.style.backgroundColor = color;}, 5000);
+                //     console.log(color);
+                //     console.log(timeoutID);
+                // });
+                
+    </script>
+    
+    
+</body>
+</html>
