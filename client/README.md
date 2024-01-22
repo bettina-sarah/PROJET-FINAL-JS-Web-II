@@ -1,3 +1,32 @@
+# Projet final - Bettina-Sarah Janesch
+
+## index.html
+
+* mauvais mot de passe: Erreur d'identification apparait mais va dans ta face pi flash
+* (peut-etre du 3d ici du three.js)
+* quand bon mot de passe rentré ca va faire de la magie
+
+
+## meteo.html
+* pluie avec des chats et chiens
+* tornades qui spawnent en fonction du vent
+* de la neige si temperature en bas de 0
+* mega soleil qui fait bruler des arbres si temperature en haut de 24
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # projet final
 
 node modules existe pas. npm install
