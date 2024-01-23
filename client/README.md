@@ -2,7 +2,9 @@
 
 ## index.html
 
-* mauvais mot de passe: Erreur d'identification apparait mais va dans ta face pi flash
+* mauvais mot de passe: Erreur d'identification apparait mais va dans ta face pi flash (un div comme une fenetre windows avec un close dans le corner)
+* deactivates pw field
+* make treasure hunt to close the div to be able to reenter pw (fine print)
 * (peut-etre du 3d ici du three.js)
 * quand bon mot de passe rentré ca va faire de la magie
 
