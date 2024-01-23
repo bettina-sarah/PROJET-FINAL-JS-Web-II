@@ -13,7 +13,7 @@
 * pluie avec des chats et chiens
 * tornades qui spawnent en fonction du vent
 * de la neige si temperature en bas de 0
-* mega soleil qui fait bruler des arbres si temperature en haut de 24
+* mega soleil qui fait bruler des arbres si temperature en haut de 24 et aussi des tumbleweeds
 
 
 
