@@ -8,8 +8,8 @@
    * Erreur d'identification apparait
    * un div fatiguant avec un avertissement apparait qui se promene aleatoirement
    * les champs du formulaire + bouton sont desactivés
-   * un dive "fine print" apparait en bas droite de la page, il est fait expres de sembler etre caché dans la page: quand on hover, le div devient plus grand.
-   * clicker sur le fine print enleve le div fatiguant et réactive le formulaire.
+   * un div "fine print" apparait en bas droite de la page, il est fait expres de sembler etre caché dans la page: quand on hover, le div devient plus grand.
+   * clicker sur le fine print enleve le div fatiguant, réactive le formulaire, et enleve le fine print.
 
 ## meteo.html
 * pluie avec des chats et chiens
