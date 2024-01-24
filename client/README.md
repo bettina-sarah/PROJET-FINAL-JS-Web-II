@@ -2,12 +2,14 @@
 
 ## index.html
 
-* mauvais mot de passe: Erreur d'identification apparait mais va dans ta face pi flash (un div comme une fenetre windows avec un close dans le corner)
-* deactivates pw field
-* make treasure hunt to close the div to be able to reenter pw (fine print)
-* (peut-etre du 3d ici du three.js)
-* quand bon mot de passe rentré ca va faire de la magie
-
+1. au mouse-over, dans le body, de temps en temps, un sprite "forestSpirit" spawn, et disparait avec le temps et s'enleve. ca prend le event du mouse pour se positioner. il se situe en arriere de tout.
+2. le bouton change d'apparence quand on hover
+3. mauvais mot de passe rentré:
+   * Erreur d'identification apparait
+   * un div fatiguant avec un avertissement apparait qui se promene aleatoirement
+   * les champs du formulaire + bouton sont desactivés
+   * un dive "fine print" apparait en bas droite de la page, il est fait expres de sembler etre caché dans la page: quand on hover, le div devient plus grand.
+   * clicker sur le fine print enleve le div fatiguant et réactive le formulaire.
 
 ## meteo.html
 * pluie avec des chats et chiens
