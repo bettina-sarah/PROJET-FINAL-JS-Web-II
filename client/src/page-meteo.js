@@ -5,4 +5,8 @@ window.addEventListener("load", async () => {
     console.log(weatherData)
     console.log("this is mine:" , weatherData.temperature)
 })
+
+
+
+
     

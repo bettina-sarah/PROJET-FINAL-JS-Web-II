@@ -5,8 +5,7 @@ let wrapperNode;
 let imageDiv;
 let passwordField;
 let submitButton;
-
-let alive;
+let eventCounter=0;
 
 let spriteList = [];
 
@@ -15,10 +14,9 @@ window.addEventListener("load", () => {
     
     passwordValidation();
 
-    document.onmouseover = (event) => {
-        spriteList.push(new ForestSpirit(event.x, event.y));
-        tick();
-    }
+    spawnForestSpirit();
+
+    tick();
 
 })
 
@@ -57,11 +55,8 @@ const annoyingImage = () => {
 
 const float = () => {
 
-    imageDiv.style.top = Math.random()*innerHeight + "px";
-    imageDiv.style.left = Math.random()*innerWidth + "px";
-
-    
-    //window.requestAnimationFrame(float);
+    imageDiv.style.top = Math.random()*innerHeight - 500 + "px";
+    imageDiv.style.left = Math.random()*innerWidth - 500 + "px";
 }
 
 const finePrint = () => {
@@ -69,7 +64,7 @@ const finePrint = () => {
     finePrint.classList.add("fine-print");
     finePrint.innerText = "Appuyez ici pour réactiver le mot de passe";
 
-    finePrint.style.bottom = "0px";
+    finePrint.style.bottom = "20px";
     finePrint.style.right = "0px";
     wrapperNode.append(finePrint);
 
@@ -78,28 +73,36 @@ const finePrint = () => {
         finePrint.style.boxShadow = "5px 10px rgb(26, 151, 109)";
         passwordField.disabled = false;
         submitButton.disabled = false;
+        document.querySelector("#error-message").style.display = "none";
         imageDiv.remove();
+        spriteList = [];
 
         //le div fine-print s'enleve pas tout de suite
         setTimeout( () => {
-            finePrint.remove();}, 1000);
-        
+            finePrint.remove();}, 600);
     }
-
 }
 
+
+const spawnForestSpirit = () => {
+    document.onmouseover = (event) => {
+        eventCounter++;
+        if(eventCounter%3==0){ //juste a chaque 5 events spawn un spirit
+            spriteList.push(new ForestSpirit(event.x, event.y));
+        }       
+}
+}
+
+    
 const tick = () => {
+
 
     for (let i = 0; i < spriteList.length; i++) {
         const sprite = spriteList[i];
-        sprite.tick();
-        if(!alive){
+        if(!sprite.tick()){
             spriteList.splice(i,1);
+            i--;
         }
-        
     }
-
-
     window.requestAnimationFrame(tick);
-
 }

@@ -5,18 +5,18 @@
 
 body#index {
     padding: 10px;
-    height: 1200px;
-    width: 1920px;
-    background-image: url("../img/mushroom1.jpg");
+    height: 100vh;
+    background-image: url("../img/general/mushroom1.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    overflow:hidden;
 }
 
 #wrapper {
-    height: 1200px;
-    width: 1920px;
+    height: 100%;
+    width: 100%;
     position: relative;
     display: flex;
     justify-content: center;
@@ -29,7 +29,7 @@ body#index {
     width: 40%;
     padding: 100px;
     border: solid 5px black;
-    background-image: url("../img/fairies.jpg");
+    background-image: url("../img/general/fairies.jpg");
     background-size: cover;
     box-shadow: 5px 10px 10px rgb(0, 45, 36);
     display: flex;
@@ -43,6 +43,7 @@ form {
     width: 90%;
     padding: 10px;
     margin: 10px;
+    z-index:2;
 }
 
 span {
@@ -55,6 +56,7 @@ span {
 }
 
 #password {
+    z-index: 3;
     font-size: 25px;
 }
 
@@ -71,6 +73,7 @@ span {
     font: normal bold 30px/1 "Ubuntu", sans-serif;
     text-align: center;
     text-shadow: 1px 1px #a226a2;
+    z-index: 3;
 }
 
 #submit:hover{
@@ -96,7 +99,7 @@ text-shadow:   1px 1px #1d071d;
     height: 500px;
     width: 500px;
     position: absolute;
-    background-image: url("../img/ai-generated-warning.jpg");
+    background-image: url("../img/general/ai-generated-warning.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     animation: hueChange 0.8s linear 0s infinite forwards;
@@ -130,6 +133,7 @@ text-shadow:   1px 1px #1d071d;
     width: 180px;
     height: 20px;
     position: absolute;
+    z-index: 3;
 }
 
 .fine-print:hover {
@@ -143,10 +147,13 @@ text-shadow:   1px 1px #1d071d;
 }
 
 .forest-spirit {
-    width:350px;
-    height:350px;
-    background-image: url("../img/kodama.gif");
+    width:150px;
+    height:150px;
+    background-image: url("../img/sprites-seasons/kodama.gif");
+    background-size: cover;
     position: absolute;
+
+    z-index:1;
 }
 
 
