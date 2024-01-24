@@ -6,11 +6,20 @@ let imageDiv;
 let passwordField;
 let submitButton;
 
+let alive;
+
+let spriteList = [];
 
 window.addEventListener("load", () => {
+    wrapperNode = document.querySelector("#wrapper");
     
     passwordValidation();
-    
+
+    document.onmouseover = (event) => {
+        spriteList.push(new ForestSpirit(event.x, event.y));
+        tick();
+    }
+
 })
 
 const passwordValidation = () => {
@@ -36,7 +45,7 @@ const passwordValidation = () => {
 }
 
 const annoyingImage = () => {
-    wrapperNode = document.querySelector("#wrapper");
+    
     imageDiv = document.createElement("div");
     imageDiv.classList.add("annoying-image");
     imageDiv.style.top = Math.random()*innerHeight - 500 + "px";
@@ -76,5 +85,21 @@ const finePrint = () => {
             finePrint.remove();}, 1000);
         
     }
+
+}
+
+const tick = () => {
+
+    for (let i = 0; i < spriteList.length; i++) {
+        const sprite = spriteList[i];
+        sprite.tick();
+        if(!alive){
+            spriteList.splice(i,1);
+        }
+        
+    }
+
+
+    window.requestAnimationFrame(tick);
 
 }

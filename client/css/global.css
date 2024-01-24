@@ -142,6 +142,13 @@ text-shadow:   1px 1px #1d071d;
     bottom: 20px;
 }
 
+.forest-spirit {
+    width:350px;
+    height:350px;
+    background-image: url("../img/kodama.gif");
+    position: absolute;
+}
+
 
 
 
