@@ -1,0 +1,10 @@
+class forestSpirit {
+    constructor() {
+        
+
+    }
+
+    tick(){
+
+    }
+}

@@ -9,14 +9,18 @@
         <link rel="icon" href="img/favicon.png" type="image/png" />
     </head>
     <body id="index">
-        <div id="form-container">
-            <form action="meteo.html" method="post" id="password-form">
-                <div class="d-none" id="error-message">
-                    Erreur d'authentification
-                </div>
-                <input type="password" name="password" id="password" placeholder="Mot de passe">
-                <button type="submit">Entrer</button>
-            </form>
-        </div>         
+        <div id="wrapper">
+            <div id="form-container">
+                <span>Bienvenue a l'application moderne de météo</span>
+                <form action="meteo.html" method="post" id="password-form">
+                    <div class="d-none" id="error-message">
+                        Erreur d'authentification
+                    </div>
+                    <input type="password" name="password" id="password" placeholder="Mot de passe">
+                    <button type="submit" id="submit">Entrer</button>
+                </form>
+            </div>         
+        </div>
+        
     </body>
 </html>

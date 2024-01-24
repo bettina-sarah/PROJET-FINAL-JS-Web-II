@@ -4,56 +4,152 @@
 }
 
 body#index {
-    padding:10px;
-    font-size:40px;
-    color:pink;
+    padding: 10px;
     height: 1200px;
     width: 1920px;
     background-image: url("../img/mushroom1.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
+}
+
+#wrapper {
+    height: 1200px;
+    width: 1920px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 #form-container {
-    height: 600px;
-    width: 900px;
+    height: 45%;
+    width: 40%;
+    padding: 100px;
     border: solid 5px black;
+    background-image: url("../img/fairies.jpg");
+    background-size: cover;
+    box-shadow: 5px 10px 10px rgb(0, 45, 36);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 form {
-    height: 550px;
-    width:800px;
+    height: 80%;
+    width: 90%;
+    padding: 10px;
+    margin: 10px;
+}
+
+span {
+    padding: 10px;
+    font-size: 35px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(145, 207, 215);
+    text-shadow: 5px 5px 10px blue;
+
+}
+
+#password {
+    font-size: 25px;
+}
+
+#submit {
+    margin: 10px;
+    background: #0eeee3;
+    background: linear-gradient(#0eeee3, #0d1ed1);
+    border: 1px solid #21283b;
+    border-radius: 26px;
+    box-shadow: 2px -2px #444444;
+    padding: 15px 29px;
+    color: #ff00ff;
+    display: inline-block;
+    font: normal bold 30px/1 "Ubuntu", sans-serif;
+    text-align: center;
+    text-shadow: 1px 1px #a226a2;
+}
+
+#submit:hover{
+background:    #0d1ed1;
+background:    linear-gradient(#0d1ed1, #0eeee3);
+box-shadow:    3px -3px #000000;
+padding:       15px 29px;
+color:         #00ff00;
+display:       inline-block;
+text-shadow:   1px 1px #1d071d;
+}
+
+#error-message {
+    font-size: 70px;
+    display: none;
+    color: crimson;
+    text-shadow: 10px 2px black;
 }
 
 /* mauvais password rentré: */
 
 .annoying-image {
     height: 500px;
-    width:500px;
+    width: 500px;
+    position: absolute;
     background-image: url("../img/ai-generated-warning.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    animation: hueChange 0.5s linear 0s infinite forwards;
+    animation: hueChange 0.8s linear 0s infinite forwards;
 }
 
 @keyframes hueChange {
-    0%   { filter: invert(0) hue-rotate(0);}
-
-    50%{
-        filter:invert(1) hue-rotate(360deg) invert(0) drop-shadow(30px 10px 4px rgb(177, 255, 87));
-    
+    0% {
+        filter: invert(0) hue-rotate(0);
     }
-    100% {filter: invert(0) hue-rotate(0);
-        }
-  }
-  
+
+    25% {
+        filter: invert(0.25) hue-rotate(90deg) drop-shadow(15px 10px 4px rgb(121, 62, 240));
+
+    }
+
+    50% {
+        filter: invert(1) hue-rotate(360deg) drop-shadow(30px 10px 4px rgb(177, 255, 87));
+    }
+
+    100% {
+        filter: invert(0) hue-rotate(0);
+    }
+}
+
+.fine-print {
+
+    font-size: 10px;
+    color: rgb(19, 96, 47);
+    border: 2px solid black;
+    box-shadow: 5px 10px rgb(4, 98, 65);
+    width: 180px;
+    height: 20px;
+    position: absolute;
+}
+
+.fine-print:hover {
+    width: 520px;
+    height: 50px;
+    font-size: 30px;
+    border: 2px solid black;
+    box-shadow: 5px 10px rgb(207, 9, 229);
+    color: rgb(207, 9, 229);
+    bottom: 20px;
+}
+
+
+
 
 /* PAGE METEO: */
 
 body#meteo {
-    font-size:40px;
-    color:pink;
+    font-size: 40px;
+    color: pink;
     height: 1200px;
     width: 1920px;
     background-image: url("../img/underwater.jpg");
