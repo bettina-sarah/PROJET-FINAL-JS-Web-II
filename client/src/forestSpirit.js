@@ -1,7 +1,6 @@
-console.log("connected")
 let bodyNode;
 
-class ForestSpirit {
+export default class ForestSpirit {
     constructor(x,y) {
     bodyNode = document.querySelector("#index");
 
@@ -20,7 +19,6 @@ class ForestSpirit {
     tick(){
         let alive=true;
         this.opacity -= this.disappear;
-        console.log(this.opacity)
 
         this.node.style.opacity = this.opacity;
 

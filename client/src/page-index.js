@@ -1,3 +1,4 @@
+import ForestSpirit from "./forestSpirit";
 
 let innerWidth = window.innerWidth;
 let innerHeight = window.innerHeight;

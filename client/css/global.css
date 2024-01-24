@@ -170,5 +170,90 @@ body#meteo {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+#brasov {
+background:    #2f00ff;
+background:    linear-gradient(#2f00ff, #9900ff);
+border:        1px solid #556699;
+border-radius: 16px;
+box-shadow:    1px 1px #444444;
+padding:       20px 35px;
+color:         #efd5f2;
+display:       inline-block;
+font:          normal bold 30px/1 "Ubuntu", sans-serif;
+text-align:    center;
+text-shadow:   2px 2px #000000;
+}
+
+#brasov:hover{
+background:    #9900ff;
+background:    linear-gradient(#9900ff, #2f00ff);
+border-radius: 16px;
+box-shadow:    5px 5px #000000;
+padding:       20px 35px;
+color:         #00f2ff;
+display:       inline-block;
+font:          normal bold 33px/1 "Ubuntu", sans-serif;
+text-align:    center;
+text-shadow:   2px 2px #000000;
+}
+
+
+#hanoi {
+background:    #12923e;
+background:    linear-gradient(#12923e, #eeff00);
+border:        1px solid #556699;
+border-radius: 16px;
+box-shadow:    1px 1px #444444;
+padding:       20px 35px;
+color:         #f9f9ba;
+display:       inline-block;
+font:          normal bold 30px/1 "Ubuntu", sans-serif;
+text-align:    center;
+text-shadow:   2px 2px #000000;
 
 }
+
+#hanoi:hover {
+background:    #12923e;
+background:    linear-gradient(#12923e, #eeff00);
+border:        1px solid #556699;
+border-radius: 16px;
+box-shadow:    5px 5px #444444;
+padding:       20px 35px;
+color:         #003bff;
+display:       inline-block;
+font:          normal bold 33px/1 "Ubuntu", sans-serif;
+text-align:    center;
+text-shadow:   2px 2px #000000;
+}
+
+#cairo {
+background:    #8e0606;
+background:    linear-gradient(#8e0606, #ff7400);
+border:        1px solid #556699;
+border-radius: 16px;
+box-shadow:    1px 1px #444444;
+padding:       20px 35px;
+color:         #ff009a;
+display:       inline-block;
+font:          normal bold 30px/1 "Ubuntu", sans-serif;
+text-align:    center;
+text-shadow:   2px 2px #000000;
+}
+
+#cairo:hover {
+background:    #ff7400;
+background:    linear-gradient(#ff7400, #8e0606);
+border:        1px solid #556699;
+border-radius: 16px;
+box-shadow:    1px 1px #444444;
+padding:       20px 35px;
+color:         #ccaee6;
+display:       inline-block;
+font:          normal bold 33px/1 "Ubuntu", sans-serif;
+text-align:    center;
+text-shadow:   2px 2px #000000;
+}
+

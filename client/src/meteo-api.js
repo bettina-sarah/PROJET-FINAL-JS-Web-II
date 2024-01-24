@@ -14,7 +14,7 @@ export const fetchData = async (latitude, longitude) => {
 
     if (!weatherData) {
         const responses = await fetchWeatherApi(url, {
-            ...params,
+            ...params, 
             latitude,
             longitude
         });
