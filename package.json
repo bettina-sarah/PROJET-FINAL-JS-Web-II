@@ -4,7 +4,8 @@
   "description": "CVM Météo",
   "main": "server.js",
   "scripts": {
-    "webpack": "webpack --watch"
+    "webpack": "webpack --watch",
+    "start": "webpack --watch"
   },
   "author": "",
   "license": "ISC",
