@@ -11,7 +11,7 @@ body#index {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 #wrapper {
@@ -43,7 +43,7 @@ form {
     width: 90%;
     padding: 10px;
     margin: 10px;
-    z-index:2;
+    z-index: 2;
 }
 
 span {
@@ -62,7 +62,7 @@ span {
 
 #submit {
     margin: 10px;
-    background: #0eeee3;
+    transition: 0.2s ease-in-out;
     background: linear-gradient(#0eeee3, #0d1ed1);
     border: 1px solid #21283b;
     border-radius: 26px;
@@ -76,14 +76,12 @@ span {
     z-index: 3;
 }
 
-#submit:hover{
-background:    #0d1ed1;
-background:    linear-gradient(#0d1ed1, #0eeee3);
-box-shadow:    3px -3px #000000;
-padding:       15px 29px;
-color:         #00ff00;
-display:       inline-block;
-text-shadow:   1px 1px #1d071d;
+#submit:hover {
+    background: linear-gradient(#0d1ed1, #0eeee3);
+    box-shadow: 3px -3px #000000;
+    padding: 15px 29px;
+    color: #00ff00;
+    text-shadow: 1px 1px #1d071d;
 }
 
 #error-message {
@@ -147,13 +145,13 @@ text-shadow:   1px 1px #1d071d;
 }
 
 .forest-spirit {
-    width:150px;
-    height:150px;
+    width: 150px;
+    height: 150px;
     background-image: url("../img/sprites-seasons/kodama.gif");
     background-size: cover;
     position: absolute;
 
-    z-index:1;
+    z-index: 1;
 }
 
 
@@ -162,98 +160,127 @@ text-shadow:   1px 1px #1d071d;
 /* PAGE METEO: */
 
 body#meteo {
-    font-size: 40px;
-    color: pink;
-    height: 1200px;
-    width: 1920px;
-    background-image: url("../img/underwater.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
+    height: 100vh;
+    background-image: url("../img/general/underwater.jpg");
     background-size: cover;
 }
 
+#meteo-wrapper {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* button styles */
 #brasov {
-background:    #2f00ff;
-background:    linear-gradient(#2f00ff, #9900ff);
-border:        1px solid #556699;
-border-radius: 16px;
-box-shadow:    1px 1px #444444;
-padding:       20px 35px;
-color:         #efd5f2;
-display:       inline-block;
-font:          normal bold 30px/1 "Ubuntu", sans-serif;
-text-align:    center;
-text-shadow:   2px 2px #000000;
+    transition: 0.2s ease-in-out;
+    background-color: #2f00ff;
+    background-image: linear-gradient(#2f00ff, #9900ff);
+    border: 1px solid #020309;
+    border-radius: 16px;
+    box-shadow: 12px 12px 2px 1px rgba(90, 90, 150);
+    padding: 20px 35px;
+    color: #efd5f2;
+    display: inline-block;
+    font: normal bold 30px/1 "Ubuntu", sans-serif;
+    text-align: center;
+    text-shadow: 2px 2px #000000;
 }
 
-#brasov:hover{
-background:    #9900ff;
-background:    linear-gradient(#9900ff, #2f00ff);
-border-radius: 16px;
-box-shadow:    5px 5px #000000;
-padding:       20px 35px;
-color:         #00f2ff;
-display:       inline-block;
-font:          normal bold 33px/1 "Ubuntu", sans-serif;
-text-align:    center;
-text-shadow:   2px 2px #000000;
+#brasov:hover {
+    background: #9900ff;
+    border-radius: 16px;
+    box-shadow: 2px 2px 2px 1px #000000;
+    padding: 20px 35px;
+    color: #00f2ff;
+    font: normal bold 30px/1 "Ubuntu", sans-serif;
+    text-align: center;
 }
-
 
 #hanoi {
-background:    #12923e;
-background:    linear-gradient(#12923e, #eeff00);
-border:        1px solid #556699;
-border-radius: 16px;
-box-shadow:    1px 1px #444444;
-padding:       20px 35px;
-color:         #f9f9ba;
-display:       inline-block;
-font:          normal bold 30px/1 "Ubuntu", sans-serif;
-text-align:    center;
-text-shadow:   2px 2px #000000;
-
+    transition: 0.2s ease-in-out;
+    background-color: #12923e;
+    background-image: linear-gradient(#12923e, #eeff00);
+    border: 1px solid #032712;
+    border-radius: 16px;
+    box-shadow: 12px 12px 2px 1px rgb(90, 150, 111);
+    padding: 20px 35px;
+    color: #f9f9ba;
+    display: inline-block;
+    font: normal bold 30px/1 "Ubuntu", sans-serif;
+    text-align: center;
+    text-shadow: 2px 2px #000000;
 }
 
 #hanoi:hover {
-background:    #12923e;
-background:    linear-gradient(#12923e, #eeff00);
-border:        1px solid #556699;
-border-radius: 16px;
-box-shadow:    5px 5px #444444;
-padding:       20px 35px;
-color:         #003bff;
-display:       inline-block;
-font:          normal bold 33px/1 "Ubuntu", sans-serif;
-text-align:    center;
-text-shadow:   2px 2px #000000;
+    background: #329956;
+    border-radius: 16px;
+    box-shadow: 2px 2px 2px 1px #000000;
+    padding: 20px 35px;
+    color: #82f9ff;
+    font: normal bold 30px/1 "Ubuntu", sans-serif;
+    text-align: center;
 }
 
-#cairo {
-background:    #8e0606;
-background:    linear-gradient(#8e0606, #ff7400);
-border:        1px solid #556699;
-border-radius: 16px;
-box-shadow:    1px 1px #444444;
-padding:       20px 35px;
-color:         #ff009a;
-display:       inline-block;
-font:          normal bold 30px/1 "Ubuntu", sans-serif;
-text-align:    center;
-text-shadow:   2px 2px #000000;
+#bergen {
+    transition: 0.2s ease-in-out;
+    background-color: #8e0606;
+    background-image: linear-gradient(#8e0606, #ff7400);
+    border: 1px solid #290713;
+    border-radius: 16px;
+    box-shadow: 12px 12px 2px 1px rgb(124, 73, 84);
+    padding: 20px 35px;
+    color: #c9bdea;
+    display: inline-block;
+    font: normal bold 30px/1 "Ubuntu", sans-serif;
+    text-align: center;
+    text-shadow: 2px 2px #000000;
 }
 
-#cairo:hover {
-background:    #ff7400;
-background:    linear-gradient(#ff7400, #8e0606);
-border:        1px solid #556699;
-border-radius: 16px;
-box-shadow:    1px 1px #444444;
-padding:       20px 35px;
-color:         #ccaee6;
-display:       inline-block;
-font:          normal bold 33px/1 "Ubuntu", sans-serif;
-text-align:    center;
-text-shadow:   2px 2px #000000;
+#bergen:hover {
+    background: #c6458c;
+    border-radius: 16px;
+    box-shadow: 2px 2px 2px 1px #000000;
+    padding: 20px 35px;
+    color: #00f2ff;
+    font: normal bold 30px/1 "Ubuntu", sans-serif;
+    text-align: center;
 }
 
+/* city classes */
+
+.brasov-cls {
+    height: 100%;
+    width: 100%;
+    background-image: url("../img/cities/brasov1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.hanoi-cls {
+    height: 100%;
+    width: 100%;
+    background-image: url("../img/cities/hanoi2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.bergen-cls {
+    height: 100%;
+    width: 100%;
+    background-image: url("../img/cities/bergen1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+
+}

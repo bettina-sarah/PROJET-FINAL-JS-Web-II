@@ -1,10 +1,10 @@
 import { fetchWeatherApi } from 'openmeteo';
-	
+
 const cache = {};
 const params = {
-	"current": ["temperature_2m", "apparent_temperature", "is_day", "precipitation", "rain", "showers", "snowfall", "wind_speed_10m"],
-	"timeformat": "unixtime",
-	"forecast_days": 1
+    "current": ["temperature_2m", "apparent_temperature", "is_day", "precipitation", "rain", "showers", "snowfall", "wind_speed_10m"],
+    "timeformat": "unixtime",
+    "forecast_days": 1
 };
 
 export const fetchData = async (latitude, longitude) => {
@@ -14,14 +14,13 @@ export const fetchData = async (latitude, longitude) => {
 
     if (!weatherData) {
         const responses = await fetchWeatherApi(url, {
-            ...params, 
+            ...params,
             latitude,
             longitude
         });
-        
-        const range = (start, stop, step) => Array.from({ length: (stop - start) / step }, (_, i) => start + i * step);
+
         const response = responses[0];
-        const utcOffsetSeconds = response.utcOffsetSeconds();    
+        const utcOffsetSeconds = response.utcOffsetSeconds();
         const current = response.current();
 
         weatherData = {
@@ -39,5 +38,5 @@ export const fetchData = async (latitude, longitude) => {
         cache[cacheKey] = weatherData;
     }
 
-    return weatherData;    
+    return weatherData;
 }

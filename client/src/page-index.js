@@ -6,13 +6,13 @@ let wrapperNode;
 let imageDiv;
 let passwordField;
 let submitButton;
-let eventCounter=0;
+let eventCounter = 0;
 
 let spriteList = [];
 
 window.addEventListener("load", () => {
     wrapperNode = document.querySelector("#wrapper");
-    
+
     passwordValidation();
 
     spawnForestSpirit();
@@ -25,7 +25,7 @@ const passwordValidation = () => {
 
     passwordField = document.querySelector("#password");
     submitButton = document.querySelector("#submit");
-                    
+
     document.querySelector("#password-form").onsubmit = () => {
         let success = true;
 
@@ -44,11 +44,11 @@ const passwordValidation = () => {
 }
 
 const annoyingImage = () => {
-    
+
     imageDiv = document.createElement("div");
     imageDiv.classList.add("annoying-image");
-    imageDiv.style.top = Math.random()*innerHeight - 500 + "px";
-    imageDiv.style.left = Math.random()*innerWidth - 500 + "px";
+    imageDiv.style.top = Math.random() * innerHeight - 500 + "px";
+    imageDiv.style.left = Math.random() * innerWidth - 500 + "px";
     wrapperNode.append(imageDiv);
 
     setInterval(float, 1000);
@@ -56,8 +56,8 @@ const annoyingImage = () => {
 
 const float = () => {
 
-    imageDiv.style.top = Math.random()*innerHeight - 500 + "px";
-    imageDiv.style.left = Math.random()*innerWidth - 500 + "px";
+    imageDiv.style.top = Math.random() * innerHeight - 500 + "px";
+    imageDiv.style.left = Math.random() * innerWidth - 500 + "px";
 }
 
 const finePrint = () => {
@@ -79,8 +79,9 @@ const finePrint = () => {
         spriteList = [];
 
         //le div fine-print s'enleve pas tout de suite
-        setTimeout( () => {
-            finePrint.remove();}, 600);
+        setTimeout(() => {
+            finePrint.remove();
+        }, 600);
     }
 }
 
@@ -88,20 +89,20 @@ const finePrint = () => {
 const spawnForestSpirit = () => {
     document.onmouseover = (event) => {
         eventCounter++;
-        if(eventCounter%3==0){ //juste a chaque 5 events spawn un spirit
+        if (eventCounter % 3 == 0) { //juste a chaque 5 events spawn un spirit
             spriteList.push(new ForestSpirit(event.x, event.y));
-        }       
-}
+        }
+    }
 }
 
-    
+
 const tick = () => {
 
 
     for (let i = 0; i < spriteList.length; i++) {
         const sprite = spriteList[i];
-        if(!sprite.tick()){
-            spriteList.splice(i,1);
+        if (!sprite.tick()) {
+            spriteList.splice(i, 1);
             i--;
         }
     }
