@@ -1,10 +1,11 @@
-import ForestSpirit from "./forestSpirit";
+import ForestSpirit from "./sprites/ForestSpirit";
 
 let innerWidth = window.innerWidth;
 let innerHeight = window.innerHeight;
 let wrapperNode;
 let imageDiv;
 let passwordField;
+let nameField;
 let submitButton;
 let eventCounter = 0;
 
@@ -20,6 +21,13 @@ window.addEventListener("load", () => {
     tick();
 
 })
+
+const rememberName = () => {
+    nameField = document.querySelector("#name");
+    let nameValue = nameField.value;
+    console.log(nameValue)
+    localStorage.setItem("name", nameValue);
+}
 
 const passwordValidation = () => {
 
@@ -37,6 +45,10 @@ const passwordValidation = () => {
             passwordField.disabled = true;
             submitButton.disabled = true;
             finePrint();
+        }
+
+        if (success) {
+            rememberName();
         }
 
         return success;
@@ -97,8 +109,6 @@ const spawnForestSpirit = () => {
 
 
 const tick = () => {
-
-
     for (let i = 0; i < spriteList.length; i++) {
         const sprite = spriteList[i];
         if (!sprite.tick()) {

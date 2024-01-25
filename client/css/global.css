@@ -55,10 +55,12 @@ span {
 
 }
 
-#password {
+#password,
+#name {
     z-index: 3;
     font-size: 25px;
 }
+
 
 #submit {
     margin: 10px;
@@ -166,121 +168,151 @@ body#meteo {
 }
 
 #meteo-wrapper {
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-
+    flex-direction: column;
+    overflow: hidden;
 }
 
+#welcome {
+    height: 30%;
+    width: 40%;
+    background-color: #c6458c;
+    border: solid 2px black;
+    color: black;
+    font-size: 50px;
+}
+
+#button-wrapper {
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+/* #brasov,
+#hanoi,
+#bergen {} */
+
 /* button styles */
-#brasov {
+#brasov,
+#hanoi,
+#bergen {
     transition: 0.2s ease-in-out;
-    background-color: #2f00ff;
-    background-image: linear-gradient(#2f00ff, #9900ff);
-    border: 1px solid #020309;
     border-radius: 16px;
-    box-shadow: 12px 12px 2px 1px rgba(90, 90, 150);
     padding: 20px 35px;
-    color: #efd5f2;
     display: inline-block;
     font: normal bold 30px/1 "Ubuntu", sans-serif;
     text-align: center;
     text-shadow: 2px 2px #000000;
+}
+
+#brasov {
+
+    background-color: #2f00ff;
+    background-image: linear-gradient(#2f00ff, #9900ff);
+    border: 1px solid #020309;
+    box-shadow: 12px 12px 2px 1px rgba(90, 90, 150);
+    color: #efd5f2;
 }
 
 #brasov:hover {
     background: #9900ff;
-    border-radius: 16px;
     box-shadow: 2px 2px 2px 1px #000000;
-    padding: 20px 35px;
     color: #00f2ff;
-    font: normal bold 30px/1 "Ubuntu", sans-serif;
-    text-align: center;
 }
 
 #hanoi {
-    transition: 0.2s ease-in-out;
     background-color: #12923e;
     background-image: linear-gradient(#12923e, #eeff00);
     border: 1px solid #032712;
-    border-radius: 16px;
     box-shadow: 12px 12px 2px 1px rgb(90, 150, 111);
-    padding: 20px 35px;
     color: #f9f9ba;
-    display: inline-block;
-    font: normal bold 30px/1 "Ubuntu", sans-serif;
-    text-align: center;
-    text-shadow: 2px 2px #000000;
 }
 
 #hanoi:hover {
     background: #329956;
-    border-radius: 16px;
     box-shadow: 2px 2px 2px 1px #000000;
-    padding: 20px 35px;
     color: #82f9ff;
-    font: normal bold 30px/1 "Ubuntu", sans-serif;
-    text-align: center;
 }
 
 #bergen {
-    transition: 0.2s ease-in-out;
     background-color: #8e0606;
     background-image: linear-gradient(#8e0606, #ff7400);
     border: 1px solid #290713;
-    border-radius: 16px;
     box-shadow: 12px 12px 2px 1px rgb(124, 73, 84);
-    padding: 20px 35px;
     color: #c9bdea;
-    display: inline-block;
-    font: normal bold 30px/1 "Ubuntu", sans-serif;
-    text-align: center;
-    text-shadow: 2px 2px #000000;
 }
 
 #bergen:hover {
     background: #c6458c;
-    border-radius: 16px;
     box-shadow: 2px 2px 2px 1px #000000;
-    padding: 20px 35px;
     color: #00f2ff;
-    font: normal bold 30px/1 "Ubuntu", sans-serif;
-    text-align: center;
 }
 
 /* city classes */
 
-.brasov-cls {
-    height: 100%;
-    width: 100%;
-    background-image: url("../img/cities/brasov1.jpg");
+.city {
+    height: 100vh;
+    width: 100vw;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+}
+
+.brasov-cls {
+    background-image: url("../img/cities/brasov1.jpg");
 }
 
 .hanoi-cls {
-    height: 100%;
-    width: 100%;
     background-image: url("../img/cities/hanoi2.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
 }
 
 .bergen-cls {
-    height: 100%;
-    width: 100%;
     background-image: url("../img/cities/bergen1.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
+}
+
+.snowflake {
+    width: 100px;
+    height: 100px;
     background-size: cover;
-    position: relative;
+    position: absolute;
+    z-index: 100;
+}
 
+.snowflake-1 {
+    background-image: url(../img/sprites-seasons/snowflakes/1.png);
+}
 
+.snowflake-2 {
+    background-image: url(../img/sprites-seasons/snowflakes/2.png);
+}
+
+.snowflake-3 {
+    background-image: url(../img/sprites-seasons/snowflakes/3.png);
+}
+
+.snowflake-4 {
+    background-image: url(../img/sprites-seasons/snowflakes/4.png);
+}
+
+.snowflake-5 {
+    background-image: url(../img/sprites-seasons/snowflakes/5.png);
+}
+
+.snowflake-6 {
+    background-image: url(../img/sprites-seasons/snowflakes/6.png);
+}
+
+.snowflake-7 {
+    background-image: url(../img/sprites-seasons/snowflakes/7.png);
+}
+
+.snowflake-8 {
+    background-image: url(../img/sprites-seasons/snowflakes/8.png);
 }
