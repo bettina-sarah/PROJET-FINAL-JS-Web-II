@@ -80,14 +80,14 @@ const loadCity = (cityName) => {
 
     let testObject = {
         "time": "2024-01-25T23:45:00.000Z",
-        "temperature": -2,
+        "temperature": -1,
         "apparentTemperature": 0,
         "isDay": 0,
         "precipitation": 0,
         "rain": 0,
         "showers": 0,
-        "snowfall": 0,
-        "windSpeed10m": 20
+        "snowfall": 6,
+        "windSpeed10m": 0
     }
     checkWeather(testObject);
 
@@ -141,8 +141,12 @@ const checkWeather = (cityWeatherData) => {
 
         else {
             //fast & Tornados
-            runTornadoes();
+            runTornadoes();     
         }
+    }
+
+    if(cityWeatherData.windSpeed10m > 15){
+        runTornadoes();
     }
 
     if (!cityWeatherData.isDay) {
@@ -174,7 +178,7 @@ const renderInfo = (object) => {
     let city = localStorage.getItem("city");
     infoNode.innerHTML = "<h2>Météo pour <span>" + city + "</span></h2><br>" +
         "<div>Temperature: " + object.temperature + "°C</div><br>Pluie: " + object.rain + " mm<br>Neige: " +
-        object.snowfall + " mm<br>Vitesse du vent: " + object.windSpeed10m + " m";
+        object.snowfall + " cm<br>Vitesse du vent: " + object.windSpeed10m + " m";
     console.log(object)
 
     infoWrapperNode.append(infoNode);
@@ -263,7 +267,7 @@ const generalTick = () => {
 }
 
 const spawnSprites = (Class, chance) => {
-    if (Math.random() < chance) { //1 chance sur 10
+    if (Math.random() < chance) { //1 chance sur 10-
         spriteList.push(new Class());
     }
 }

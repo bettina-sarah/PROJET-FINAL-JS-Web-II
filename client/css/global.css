@@ -165,6 +165,7 @@ body#meteo {
     height: 100vh;
     background-image: url("../img/general/underwater.jpg");
     background-size: cover;
+
 }
 
 #meteo-wrapper {
@@ -349,8 +350,8 @@ body#meteo {
 
 
 .snowflake {
-    width: 6px;
-    height: 6px;
+    width: 10px;
+    height: 10px;
     background-size: cover;
     position: absolute;
     z-index: 100;
@@ -412,11 +413,12 @@ body#meteo {
     background-size: cover;
     position: absolute;
     z-index: 100;
-}
-
-.sniff-right {
     background-image: url(../img/sprites-seasons/scrat/scrat-sniff-right.gif);
 }
+
+/* .sniff-right {
+}
+     */
 
 .sniff-left {
     background-image: url(../img/sprites-seasons/scrat/scrat-sniff-left.gif);
