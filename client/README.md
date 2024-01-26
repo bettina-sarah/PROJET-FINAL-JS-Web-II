@@ -12,7 +12,7 @@
    * clicker sur le fine print enleve le div fatiguant, réactive le formulaire, et enleve le fine print.
 
 ## meteo.html
-1.le welcome div contient le nom rentré (LocalStorage)
+1. le welcome div contient le nom rentré (LocalStorage)
 2. Choisir parmi les 3 villes ramene les infos de la ville en question dans une div informative, et enleve les boutons des villes, fait apparaite un bouton pour revenir en arrière a place - se rappelle de la ville choisi avec LOcalStorage
 3. En fonction des conditions météo, le fond d'écran change:
    * Bergen: 3x: hiver (temp <0), "été" (temp>0) et nuit: ici, une animation fait sortir l'aurore boréale.
