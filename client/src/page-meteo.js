@@ -2,6 +2,7 @@ import { fetchData } from "./meteo-api";
 import Snowflake from "./sprites/snowflake";
 import Rain from "./sprites/Rain";
 import Tornado from "./sprites/Tornado";
+import Scrat from "./sprites/Scrat";
 
 let brasovButton;
 let hanoiButton;
@@ -79,7 +80,7 @@ const loadCity = (cityName) => {
 
     let testObject = {
         "time": "2024-01-25T23:45:00.000Z",
-        "temperature": 26,
+        "temperature": -2,
         "apparentTemperature": 0,
         "isDay": 0,
         "precipitation": 0,
@@ -185,7 +186,7 @@ const renderInfo = (object) => {
 
 const runWinter = () => {
     cityNode.classList.add("winter");
-    //scrap avec son acorn
+    spriteList.push(new Scrat());
 }
 
 // const runSummer = () => {
