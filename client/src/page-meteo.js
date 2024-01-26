@@ -3,6 +3,7 @@ import Snowflake from "./sprites/snowflake";
 import Rain from "./sprites/Rain";
 import Tornado from "./sprites/Tornado";
 import Scrat from "./sprites/Scrat";
+import Acorn from "./sprites/Acorn";
 
 let brasovButton;
 let hanoiButton;
@@ -18,6 +19,7 @@ let infoNode;
 let weatherObject = {}; //objet vide qui se remplit dynamiquement comme le cache & cachekey dans le weatherapi
 
 let spriteList = [];
+let acornSprite;
 
 let isRain;
 let isSnow;
@@ -191,6 +193,10 @@ const renderInfo = (object) => {
 const runWinter = () => {
     cityNode.classList.add("winter");
     spriteList.push(new Scrat());
+    acornSprite = new Acorn();
+    spriteList.push(acornSprite);
+
+    generalTick();
 }
 
 // const runSummer = () => {
@@ -200,6 +206,7 @@ const runWinter = () => {
 const runTornadoes = () => {
     spriteList.push(new Tornado());
     isTornado = true;
+    generalTick();
 }
 
 const runNight = () => {
@@ -257,13 +264,32 @@ const generalTick = () => {
         spawnSprites(Tornado, 0.06);
     }
 
+
+
+    //tick pour acorn et scrat: collision
+
     for (let i = 0; i < spriteList.length; i++) {
+        if(spriteList[i].spriteType == "scrat"){
+            let scrat = spriteList[i];
+            if(scrat.currentX > acornSprite.currentX - acornSprite.width){
+                scrat.findAcorn = true;
+                acornSprite.isFound = true;
+                setTimeout( () => {
+                    makeScratHappy(scrat);
+                }, 3000);
+                
+            } 
+        }
         if (!spriteList[i].tick()) {
             spriteList.splice(i, 1);
             i--;
         }
     }
     window.requestAnimationFrame(generalTick);
+}
+
+const makeScratHappy = (Class) => {
+    Class.grabAcorn = true;
 }
 
 const spawnSprites = (Class, chance) => {

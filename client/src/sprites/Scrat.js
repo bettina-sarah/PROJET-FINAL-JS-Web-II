@@ -7,7 +7,7 @@ export default class Scrat {
         this.node = document.createElement("div");
         this.node.classList.add("scrat");
         this.node.style.bottom = windowHeight - 500 + "px";
-        this.currentX = 100;
+        this.currentX = 20;
         this.node.style.left = this.currentX + "px";
         this.cityNode.append(this.node);
 
@@ -115,6 +115,8 @@ export default class Scrat {
 
         if(this.findAcorn){
             let url = "url('./img/sprites-seasons/scrat/scrat-findacorn.gif')";
+            this.node.style.height = "250px";
+            this.node.style.width = "350px";
             this.node.style.backgroundImage = url;
         }
 
@@ -123,10 +125,9 @@ export default class Scrat {
             this.node.style.backgroundImage = url;
         }
 
-       
 
         this.node.style.left = this.currentX + "px";
-        if (this.currentX < 0) {
+        if (this.currentX < -600) {
             alive = false;
             this.node.remove();
         }

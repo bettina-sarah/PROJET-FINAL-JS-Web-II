@@ -408,45 +408,24 @@ body#meteo {
 }
 
 .scrat {
-    width: 360px;
-    height: 203px;
+    width: 250px;
+    height: 150px;
     background-size: cover;
     position: absolute;
     z-index: 100;
     background-image: url(../img/sprites-seasons/scrat/scrat-sniff-right.gif);
 }
 
-/* .sniff-right {
-}
-     */
-
-.sniff-left {
-    background-image: url(../img/sprites-seasons/scrat/scrat-sniff-left.gif);
-}
-
-.inspect-right {
-    background-image: url(../img/sprites-seasons/scrat/scrat-inspect-right.gif);
+.acorn {
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    position: absolute;
+    z-index: 100;
+    background-image: url(../img/sprites-seasons/acorn.gif);
 }
 
-.inspect-left {
-    background-image: url(../img/sprites-seasons/scrat/scrat-inspect-left.gif);
-}
 
-.walk-right {
-    background-image: url(../img/sprites-seasons/scrat/scrat-walk-right.gif);
-}
-
-.walk-left {
-    background-image: url(../img/sprites-seasons/scrat/scrat-walk-left.gif);
-}
-
-.find-acorn {
-    background-image: url(../img/sprites-seasons/scrat/scrat-findacorn.gif);
-}
-
-.happy {
-    background-image: url(../img/sprites-seasons/scrat/happy-scrat.gif);
-}
 
 .info-wrapper {
     margin: 50px;
