@@ -300,6 +300,18 @@ body#meteo {
     box-shadow: 5px 5px 2px 2px black;
 }
 
+.test {
+    background:    #ff00ff;
+    border-radius: 11px;
+    padding:       11px 15px;
+    color:         #000000;
+    display:       inline-block;
+    font:          normal bold 14px/1 "Open Sans", sans-serif;
+    text-align:    center;
+    position:relative;
+    z-index:200;
+}
+
 .brasov-cls {
     background-image: url("../img/cities/brasov2.jfif");
 }

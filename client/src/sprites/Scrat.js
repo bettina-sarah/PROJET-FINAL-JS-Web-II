@@ -122,6 +122,8 @@ export default class Scrat {
 
         if(this.grabAcorn){
             let url = "url('./img/sprites-seasons/scrat/happy-scrat.gif')";
+            this.node.style.height = "500px";
+            this.node.style.width = "400px";
             this.node.style.backgroundImage = url;
         }
 
