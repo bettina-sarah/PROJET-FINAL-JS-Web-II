@@ -23,25 +23,7 @@
    * pluie tombe (animation)
    * vent >25: tornades spawnent
    * été (temp>25): tumbleweeds (!Note: si vent >15, les tumbleweeds accelerent)
-   * froid: temperature en bas de 0: Scrat, l'ecureuil de Ice Age arrive avec une animation plus complexe & avec son acoen qui trouve.
-* pluie avec des chats et chiens
-* tornades qui spawnent en fonction du vent
-* de la neige si temperature en bas de 0
-* mega soleil qui fait bruler des arbres si temperature en haut de 24 et aussi des tumbleweeds
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   * froid: temperature en bas de 0: Scrat, l'ecureuil de Ice Age arrive avec une animation plus complexe & avec son acorn qu'il trouve.
 
 # projet final
 
