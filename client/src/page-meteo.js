@@ -1,5 +1,7 @@
 import { fetchData } from "./meteo-api";
 import Snowflake from "./sprites/snowflake";
+import Rain from "./sprites/Rain";
+import Tornado from "./sprites/Tornado";
 
 let brasovButton;
 let hanoiButton;
@@ -7,10 +9,22 @@ let bergenButton;
 let buttonArray = [];
 let meteoWrapperNode;
 let welcomeNode;
+let cityNode;
+let lightNode;
+let infoWrapperNode;
+let infoNode;
 
 let weatherObject = {}; //objet vide qui se remplit dynamiquement comme le cache & cachekey dans le weatherapi
 
-let snowflakeList = [];
+let spriteList = [];
+
+let isRain;
+let isSnow;
+let isTumbleweed;
+let isTornado;
+
+let isNight;
+let nightOpacity; //pour l'image d'aurore boréale
 
 
 window.addEventListener("load", async () => {
@@ -33,21 +47,23 @@ window.addEventListener("load", async () => {
         button.onclick = (event) => {
             loadCity(event.target.id);
         }
-        //opacity changes red and blue w temperatures div Overs
+
     });
 })
 
 const renderWelcome = () => {
     welcomeNode = document.querySelector("#welcome");
     let nom = localStorage.getItem("name");
-    welcomeNode.textContent = "Bienvenue, " + nom + "!";
+    welcomeNode.innerHTML = "<h1>Bienvenue, " + nom + " !</h1> Choisir une ville pour continuer...";
 
 }
 
 const loadCity = (cityName) => {
+
+    localStorage.setItem("city", cityName);
     meteoWrapperNode = document.querySelector("#meteo-wrapper");
     disableButton(buttonArray);
-    let cityNode = document.createElement("div");
+    cityNode = document.createElement("div");
     cityNode.classList.add("city"); //le wrapper commun pour tous les villes
     //pour les sprites
     cityNode.classList.add(cityName + "-cls");
@@ -56,10 +72,25 @@ const loadCity = (cityName) => {
 
     welcomeNode.style.display = "none";
 
+
+    goBack();
+
     //quel bouton est clické decide quelle info est cherché
 
-    //add cityName as param
-    checkWeather(weatherObject[cityName]);
+    let testObject = {
+        "time": "2024-01-25T23:45:00.000Z",
+        "temperature": 26,
+        "apparentTemperature": 0,
+        "isDay": 0,
+        "precipitation": 0,
+        "rain": 0,
+        "showers": 0,
+        "snowfall": 0,
+        "windSpeed10m": 20
+    }
+    checkWeather(testObject);
+
+    //checkWeather(weatherObject[cityName]);
 
 
 
@@ -71,77 +102,167 @@ const disableButton = (array) => {
         button.style.display = "none";
     });
 }
+const enableButton = (array) => {
+    array.forEach(button => {
+        button.style.display = "block";
+    });
+}
 
-// time:
-// temperature: Math.round(current.variables(0).value()),
-// apparentTemperature: Math.round(current.variables(1).value()),
-// isDay: Math.round(current.variables(2).value()),
-// precipitation: Math.round(current.variables(3).value()),
-// rain: Math.round(current.variables(4).value()),
-// showers: Math.round(current.variables(5).value()),
-// snowfall: Math.round(current.variables(6).value()),
-// windSpeed10m: Math.round(current.variables(7).value()),
+const goBack = () => {
+    let backButton = document.createElement("button");
+    backButton.classList.add("back");
+    backButton.innerText = "Revenir en arrière";
 
-//add city as param for checkweather
+    cityNode.append(backButton);
+
+    backButton.onclick = () => {
+        cityNode.remove();
+        enableButton(buttonArray);
+        welcomeNode.style.display = "block";
+        spriteList = [];
+    }
+
+}
+
 const checkWeather = (cityWeatherData) => {
-    // if (cityWeatherData.temperature < 0) {
-    //     //runWinter(city);
-    // }
-    // if (cityWeatherData.temperature > 25 && cityWeatherData.windSpeed10m <= 15) { //tumbleweeds gentilles
-    //     //runSummer(city);
-    // }
-    // if (!cityWeatherData.isDay) {
-    //     //change opacité ou bg img
-    //     //bergen: nord lights
-    // }
 
-    // if (cityWeatherData.rain > 0 || cityWeatherData.showers > 0) {
-    //     // spawn raindrops
-    // }
 
-    //what to insert: cityWeatherData.snowfall > 0
-    let snow = 15;
-    if (snow > 0) {
+    renderInfo(cityWeatherData);
+
+    if (cityWeatherData.temperature < 0) {
+        runWinter();
+    }
+    if (cityWeatherData.temperature > 25) { //tumbleweeds gentilles
+        cityNode.classList.add("summer");
+        if (cityWeatherData.windSpeed10m <= 15) {
+            //run tumbleweeds slow...
+        }
+
+        else {
+            //fast & Tornados
+            runTornadoes();
+        }
+    }
+
+    if (!cityWeatherData.isDay) {
+        //change opacité ou bg img
+        runNight();
+
+    }
+
+    if (cityWeatherData.rain > 0 || cityWeatherData.showers > 0) {
+        runRain();
+    }
+
+    // what to insert: 
+    if (cityWeatherData.snowfall > 0) {
         runSnow();
     }
 
-    // if (cityWeatherData.windSpeed10m > 15 && cityWeatherData.temperature > 25) { //tumbleweeds aggresives
-
-
-    // }
 
 
 }
 
-// const runWinter = (city) => {
-//     //city for wallpaper change!
-//     //scrap avec son acorn
+const renderInfo = (object) => {
+    infoWrapperNode = document.createElement("div");
+    infoWrapperNode.classList.add("info-wrapper");
+
+
+    infoNode = document.createElement("div");
+    infoNode.classList.add("info");
+    let city = localStorage.getItem("city");
+    infoNode.innerHTML = "<h2>Météo pour <span>" + city + "</span></h2><br>" +
+        "<div>Temperature: " + object.temperature + "°C</div><br>Pluie: " + object.rain + " mm<br>Neige: " +
+        object.snowfall + " mm<br>Vitesse du vent: " + object.windSpeed10m + " m";
+    console.log(object)
+
+    infoWrapperNode.append(infoNode);
+    cityNode.append(infoWrapperNode);
+
+
+
+}
+
+const runWinter = () => {
+    cityNode.classList.add("winter");
+    //scrap avec son acorn
+}
+
+// const runSummer = () => {
 
 // }
 
-// const runSummer = (city) => {
+const runTornadoes = () => {
+    spriteList.push(new Tornado());
+    isTornado = true;
+}
 
-// }
+const runNight = () => {
 
-const runSnow = () => {
+    if (cityNode.classList.contains("bergen-cls")) {
+        lightNode = document.createElement("div");
+        lightNode.classList.add("light");
+        cityNode.append(lightNode);
+    }
+    cityNode.classList.add("night");
+    isNight = true;
+    nightOpacity = 0.05;
 
-    snowflakeList.push(new Snowflake());
     generalTick();
 
+}
+
+const runSnow = () => {
+    spriteList.push(new Snowflake());
+    isSnow = true;
+    generalTick();
+
+}
+
+const runRain = () => {
+    cityNode.classList.add("storm");
+    spriteList.push(new Rain());
+    isRain = true;
+    generalTick();
 
 }
 
 const generalTick = () => {
 
-    if (Math.random() < 0.2) { //1 chance sur 10
-        snowflakeList.push(new Snowflake());
+    if (isNight) {
+        if (nightOpacity < 1) {
+            nightOpacity += 0.005;
+        }
+        else {
+            nightOpacity = 1;
+        }
+        if (lightNode) {
+            lightNode.style.opacity = nightOpacity;
+        }
+
     }
 
-    for (let i = 0; i < snowflakeList.length; i++) {
-        if (!snowflakeList[i].tick()) {
-            snowflakeList.splice(i, 1);
+    if (isSnow) {
+        spawnSprites(Snowflake, 0.2);
+    }
+    if (isRain) {
+        spawnSprites(Rain, 1);
+    }
+    if (isTornado) {
+        spawnSprites(Tornado, 0.06);
+    }
+
+    for (let i = 0; i < spriteList.length; i++) {
+        if (!spriteList[i].tick()) {
+            spriteList.splice(i, 1);
             i--;
         }
     }
     window.requestAnimationFrame(generalTick);
+}
+
+const spawnSprites = (Class, chance) => {
+    if (Math.random() < chance) { //1 chance sur 10
+        spriteList.push(new Class());
+    }
 }

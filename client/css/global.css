@@ -179,13 +179,25 @@ body#meteo {
 }
 
 #welcome {
-    height: 30%;
-    width: 40%;
-    background-color: #c6458c;
+    height: 13%;
+    width: 45%;
+    padding: 22px;
+    background-image: linear-gradient(to bottom right, #5761B2, #0ef8d1);
     border: solid 2px black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    box-shadow: 5px 5px 5px black;
+    font-size: 30px;
     color: black;
-    font-size: 50px;
 }
+
+#welcome h1 {
+    color: rgb(230, 15, 94);
+    text-shadow: 1px 1px black;
+    font-size: 50px;
+
+}
+
 
 #button-wrapper {
     padding: 30px;
@@ -263,11 +275,34 @@ body#meteo {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    display: flex;
+    align-items: end;
+    justify-content: space-evenly;
+
+}
+
+.back {
+    background: #15d798;
+    margin: 50px;
+    border-radius: 11px;
+    padding: 20px 45px;
+    color: #ffffff;
+    display: inline-block;
+    font: normal bold 26px/1 "Open Sans", sans-serif;
+    text-align: center;
+    z-index: 1;
+    position: relative;
+}
+
+.back:hover {
+    background: #5500ff;
+    box-shadow: 5px 5px 2px 2px black;
 }
 
 .brasov-cls {
-    background-image: url("../img/cities/brasov1.jpg");
+    background-image: url("../img/cities/brasov2.jfif");
 }
+
 
 .hanoi-cls {
     background-image: url("../img/cities/hanoi2.jpg");
@@ -277,9 +312,45 @@ body#meteo {
     background-image: url("../img/cities/bergen1.jpg");
 }
 
+.brasov-cls.winter {
+    background-image: url("../img/cities/brasov3.jfif");
+}
+
+.hanoi-cls.storm {
+    background-image: url("../img/cities/hanoi3.jpg");
+}
+
+.hanoi-cls.summer {
+    background-image: url("../img/cities/hanoi1.jpg");
+}
+
+.bergen-cls.winter {
+    background-image: url("../img/cities/bergen3.jpg");
+}
+
+.bergen-cls.night {
+    background-image: url("../img/cities/bergen12.jpg");
+}
+
+.bergen-cls.night .light {
+    /* child of light */
+    background-image: url(../img/cities/bergen2.jpg);
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+}
+
+
 .snowflake {
-    width: 100px;
-    height: 100px;
+    width: 6px;
+    height: 6px;
     background-size: cover;
     position: absolute;
     z-index: 100;
@@ -315,4 +386,58 @@ body#meteo {
 
 .snowflake-8 {
     background-image: url(../img/sprites-seasons/snowflakes/8.png);
+}
+
+.rain {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-image: url(../img/sprites-seasons/rain.png);
+    position: absolute;
+    z-index: 100;
+}
+
+.tornado {
+    width: 94px;
+    height: 106px;
+    background-size: cover;
+    background-image: url(../img/sprites-seasons/tornado.gif);
+    position: absolute;
+    z-index: 100;
+
+
+}
+
+.info-wrapper {
+    margin: 50px;
+    width: 400px;
+    height: 230px;
+    padding-top: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../img/sprites-seasons/info.png);
+    box-shadow: 5px 5px 5px rgb(57, 55, 55);
+    text-align: center;
+    display: block;
+    position: relative;
+    z-index: 50;
+}
+
+.info {
+    font: normal 20px/1 "Ubuntu", sans-serif;
+}
+
+.info div {
+    font-size: 30px;
+
+}
+
+h2 {
+    padding: 5px;
+    color: #290713;
+    font-size: 40px;
+}
+
+span {
+    text-transform: capitalize;
 }
