@@ -12,24 +12,18 @@
    * clicker sur le fine print enleve le div fatiguant, réactive le formulaire, et enleve le fine print.
 
 ## meteo.html
-* pluie avec des chats et chiens
-* tornades qui spawnent en fonction du vent
-* de la neige si temperature en bas de 0
-* mega soleil qui fait bruler des arbres si temperature en haut de 24 et aussi des tumbleweeds
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+1. le welcome div contient le nom rentré (LocalStorage)
+2. Choisir parmi les 3 villes ramene les infos de la ville en question dans une div informative, et enleve les boutons des villes, fait apparaite un bouton pour revenir en arrière a place - se rappelle de la ville choisi avec LOcalStorage
+3. En fonction des conditions météo, le fond d'écran change:
+   * Bergen: 3x: hiver (temp <0), "été" (temp>0) et nuit: ici, une animation fait sortir l'aurore boréale.
+   * Brasov: 2x: hiver et photo normale
+   * Hanoi: 2x: normale et pendant orages/pluie
+4. conditions de météo - sprites:
+   * neige: animation - flocons de neige tombent
+   * pluie tombe (animation)
+   * vent >25: tornades spawnent
+   * été (temp>25): tumbleweeds (!Note: si vent >15, les tumbleweeds accelerent)
+   * froid: temperature en bas de 0: Scrat, l'ecureuil de Ice Age arrive avec une animation plus complexe & avec son acorn qu'il trouve.
 
 # projet final
 
