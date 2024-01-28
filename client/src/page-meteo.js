@@ -28,7 +28,7 @@ let isSnow;
 let isWinter;
 let isTornado;
 
-let isStarted=false;
+let isStarted = false;
 
 let isNight;
 let nightOpacity; //pour l'image d'aurore boréale
@@ -96,9 +96,9 @@ const loadCity = (cityName) => {
     }
     checkWeather(testObject);
 
-    
 
-    //checkWeather(weatherObject[cityName]);
+
+    // checkWeather(weatherObject[cityName]);
 
 
 
@@ -142,39 +142,39 @@ const checkWeather = (cityWeatherData) => {
     if (cityWeatherData.temperature < 0) {
         runWinter();
     }
-    else{
-        isWinter=false;
+    else {
+        isWinter = false;
     }
     if (cityWeatherData.temperature > 25) { //tumbleweeds gentilles
         cityNode.classList.add("summer");
         if (cityWeatherData.windSpeed10m > 15) {
-            runTornadoes();  
+            runTornadoes();
         }
-        else{
-            isTornado=false;
+        else {
+            isTornado = false;
         }
     }
 
-    if(cityWeatherData.windSpeed10m > 15){
+    if (cityWeatherData.windSpeed10m > 15) {
         runTornadoes();
     }
-    else{
-        isTornado=false;
+    else {
+        isTornado = false;
     }
 
     if (!cityWeatherData.isDay) {
         //change opacité ou bg img
         runNight();
     }
-    else{
-        isNight=false;
+    else {
+        isNight = false;
     }
 
     if (cityWeatherData.rain > 0 || cityWeatherData.showers > 0) {
         runRain();
     }
-    else{
-        isRain=false;
+    else {
+        isRain = false;
     }
 
 
@@ -182,8 +182,8 @@ const checkWeather = (cityWeatherData) => {
     if (cityWeatherData.snowfall > 0) {
         runSnow();
     }
-    else{
-        isSnow=false;
+    else {
+        isSnow = false;
     }
 }
 
@@ -205,13 +205,13 @@ const makeTestButton = (weatherData) => {
     }
 
     testButtonArray[0].innerText = "Temperature: " + weatherData.temperature;
-    if(weatherData.isDay===0){
+    if (weatherData.isDay === 0) {
         testButtonArray[1].innerText = "Jour/Nuit: Nuit";
     }
-    else{
+    else {
         testButtonArray[1].innerText = "Jour/Nuit: Jour";
     }
-    
+
     testButtonArray[2].innerText = "Precipitation: " + weatherData.precipitation;
     testButtonArray[3].innerText = "Pluie: " + weatherData.rain;
     testButtonArray[4].innerText = "Showers: " + weatherData.showers;
@@ -231,32 +231,32 @@ const clickTestButton = (testbutton, index) => {
     testbutton.onclick = () => {
         let testObject = {
             "time": "2024-01-25T23:45:00.000Z",
-            "temperature": -1,
+            "temperature": 26,
             "apparentTemperature": 0,
-            "isDay": 0,
+            "isDay": 1,
             "precipitation": 0,
             "rain": 0,
             "showers": 0,
-            "snowfall": 6,
-            "windSpeed10m": 0
+            "snowfall": 0,
+            "windSpeed10m": 33
         }
 
-        testObject.temperature = index ==0 ? -1 : 30; //temp
-        testObject.isDay = index ==1 ? 1 : 0; //jour Nuit
-        testObject.precipitation = index ==2 ? 0 : 5; //precipitation
-        testObject.rain = index ==3 ? 0 : 5; //pluie
-        testObject.showers = index ==4 ? 0 : 5; //showers
-        testObject.snowfall = index ==5 ? 0 : 5; //snow
-        testObject.windSpeed10m = index ==6 ? 0 : 20; //windspeed
-        
-        
+        testObject.temperature = index == 1 ? -1 : 30; //temp
+        testObject.isDay = index == 3 ? 1 : 0; //jour Nuit
+        testObject.precipitation = index == 4 ? 0 : 5; //precipitation
+        testObject.rain = index == 5 ? 0 : 5; //pluie
+        testObject.showers = index == 6 ? 0 : 5; //showers
+        testObject.snowfall = index == 7 ? 0 : 5; //snow
+        testObject.windSpeed10m = index == 8 ? 0 : 20; //windspeed
+
+
         checkWeather(testObject);
     }
 }
 
 const renderInfo = (object) => {
-    
-    if(infoWrapperNode){
+
+    if (infoWrapperNode) {
         infoWrapperNode.remove();
     }
 
@@ -280,16 +280,16 @@ const renderInfo = (object) => {
 }
 
 const runWinter = () => {
-    
 
-    if(isWinter){
+    isWinter = true;
+    if (isWinter) {
         cityNode.classList.add("winter");
         spriteList.push(new Scrat());
         acornSprite = new Acorn();
         spriteList.push(acornSprite);
         generalTick();
     }
-     
+
 }
 
 const runTornadoes = () => {
@@ -317,7 +317,7 @@ const runNight = () => {
 const runSnow = () => {
     spriteList.push(new Snowflake());
     isSnow = true;
-    if(!isStarted){ //si pas commencé ... 
+    if (!isStarted) { //si pas commencé ... 
         generalTick();
     }
 }
@@ -333,7 +333,7 @@ const runRain = () => {
 
 const generalTick = () => {
 
-    isStarted=true;
+    isStarted = true;
 
     if (isNight) {
         if (nightOpacity < 1) {
@@ -363,16 +363,16 @@ const generalTick = () => {
     //tick pour acorn et scrat: collision
 
     for (let i = 0; i < spriteList.length; i++) {
-        if(spriteList[i].spriteType == "scrat"){
+        if (spriteList[i].spriteType == "scrat") {
             let scrat = spriteList[i];
-            if(scrat.currentX > acornSprite.currentX - acornSprite.width){
+            if (scrat.currentX > acornSprite.currentX - acornSprite.width) {
                 scrat.findAcorn = true;
                 acornSprite.isFound = true;
-                setTimeout( () => {
+                setTimeout(() => {
                     makeScratHappy(scrat);
                 }, 2200);
-                
-            } 
+
+            }
         }
         if (!spriteList[i].tick()) {
             spriteList.splice(i, 1);
